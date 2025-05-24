@@ -1,0 +1,14 @@
+No.,Column name,Data Type,Description
+0,'profile_pic',categorical,Whether the account has a profile picture (1) or not (0)
+1,'ratio_numlen_username',numerical (float),Ratio of numeric characters in the account username to its length
+2,'len_fullname',numerical (int),Number of characters in the user's full name
+3,'ratio_numlen_fullname',numerical (float),Ratio of numeric characters in the user's full name to its length
+4,'sim_name_username',categorical,"Whether the user's name matches their username completely (1),not at all (0)."
+5,'len_desc',numerical (int),Number of characters in the account description
+6,'extern_url',categorical,Whether the account description includes a URL (1) or not (2)
+7,'private',categorical,Whether the user's posts are visible only to their followers (1) or to all Instagram users (2).
+8,'num_posts',numerical (int),Number of posts in the user account
+9,'num_followers',numerical (int),Number of Instagram users following the account
+10,'num_following',numerical (int),Number of Instagram users followed by the account
+11,'fake',categorical,Whether the user account is real (0) or a fake account (1).
+
