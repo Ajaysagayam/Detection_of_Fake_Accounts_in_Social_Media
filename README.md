@@ -77,3 +77,6 @@ We successfully developed a logistic regression model to classify social media a
 + **Regularization does not improve performance** in this dataset, possibly due to limited features. 
  
 + **Feature engineering is key** – more advanced features (engagement rates, post timestamps) may enhance accuracy. 
+
+# Acknowledgements
+Developed as part of M.Sc. Computer Science final year project to contribute towards predicting of fake accounts in social media and supporting the cyber security.
