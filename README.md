@@ -17,4 +17,31 @@ The dataset used for this project is stored in social_media_train.csv. It contai
 + **len_desc:** Number of words in the account's bio description.
 + **ratio_numlen_fullname:** Ratio of numeric characters in the full name to its length.
 + **num_posts:** Number of posts by the user.
-+ **num_followers:** Number of followers the user has.   
++ **num_followers:** Number of followers the user has.
+
+# Key Findings from Exploratory Data Analysis(EDA) 
++ **Fake Accounts Characteristics:**
+  - Fake accounts tend to have a higher spread in the ratio_numlen_username feature, while real accounts are clustered around the mean.
+  - Fake accounts typically have fewer words in their bio descriptions (len_desc).
+  - The average number of posts and followers for fake accounts is close to zero. 
++ **Correlation Between Features:**
+  - ratio_numlen_username and ratio_numlen_fullname are moderately correlated (+0.4085).
+  - Other features show weak correlations, which is ideal for logistic regression. 
+
+# Model Development 
+We used **Logistic Regression** as the primary algorithm for this classification task. Logistic regression is well-suited for binary classification problems and allows for regularization to prevent overfitting. 
+
+**Approach:** 
++ **Without Regularization:**
+  - A logistic regression model was trained without regularization (C=1e42) to establish a baseline.
+  - The model achieved a high recall but lower precision, indicating it was better at identifying fake accounts but less reliable in its predictions. 
++ **With Regularization:**
+  - A second model was trained with regularization (C=1.0) to improve generalization.
+  - This model showed higher precision but lower recall compared to the nonregularized model. 
+ 
++ **Grid Search for Optimal Hyperparameters:**
+  - We used GridSearchCV to find the best hyperparameters for the logistic regression model.
+  - The optimal parameters were:
+    * penalty='l2' (Ridge regularization).
+    * C=4.92 (inverse of regularization strength).
+  - The solver used was saga, which supports both L1 and L2 regularization. 
