@@ -45,3 +45,35 @@ We used **Logistic Regression** as the primary algorithm for this classification
     * penalty='l2' (Ridge regularization).
     * C=4.92 (inverse of regularization strength).
   - The solver used was saga, which supports both L1 and L2 regularization. 
+
+# Model Evaluation
+The performance of the models was evaluated using the **ROC-AUC score**, which measures the model's ability to distinguish between real and fake accounts.
+
+**Results:** 
++ **Without Regularization:**
+  - ROC-AUC score: **96%**.
+  - The model performed exceptionally well but showed signs of overfitting. 
++ **With Regularization:**
+  - ROC-AUC score: **77%**.
+  - Regularization improved generalization but slightly reduced model performance. 
++ **Best Model (Grid Search):**
+  - ROC-AUC score on validation data: **94.5%**.
+  - ROC-AUC score on test data: **93.9%**.
+  - The model achieved a balance between precision and recall, making it suitable for deployment.
+
+**ROC(Receiver Operating Characteristic) Curve Analysis:**
++ The ROC curve for the non-regularized model closely followed the ideal line, indicating high accuracy.
++ The regularized model deviated slightly but still maintained good performance.
+
+# Prediction 
+The final model was used to predict the status of user accounts. Key observations: 
++ For some accounts, the model was **100% confident** in its predictions (probability = 1.0 or 0.0).
++ For others, the predictions were less certain, allowing management to set a threshold for blocking accounts based on their risk tolerance.
+
+# Conclusion 
+We successfully developed a logistic regression model to classify social media accounts as real or fake. The model achieved a **ROC-AUC score of 93.9%** on test data, demonstrating its effectiveness in distinguishing between the two classes. By using grid search, we optimized the hyperparameters and ensured the model's robustness. 
++ Fake account detection is **achievable with logistic regression**. 
+ 
++ **Regularization does not improve performance** in this dataset, possibly due to limited features. 
+ 
++ **Feature engineering is key** – more advanced features (engagement rates, post timestamps) may enhance accuracy. 
